@@ -1,0 +1,42 @@
+Tree Terminologies :-
+
+                                    1         --------> Level0
+                                  /   \
+                                2      3      --------> Level1
+                               /  \   /  \
+                             4     5  6   7   ---------> Level2
+                            / \   / \ / \ / \
+                           8   9 10 11
+ This is binary tree --->
+   Binary Tree ----> Every node has atmost 2 children (either 0 or 1 or 2 children).
+
+   Parent ---> 2 is parent of 4 and 5
+
+   Child ---> 4 and 5 are the children of 2
+
+   Edge ---> the line which connects two nodes
+
+   Leaf Nodes ----> Leaf node ha no children
+
+   Ancestor(purvaj) ----> Ancestors of 4 are 2 , 1 (node ke uparwale nodes(seedhi line mai jo nodes hai)
+
+   Descendant :- Descendants of 2 are 4 8 9 5 10 11(node ke niche wale sare nodes)
+
+   Siblings :- Whose parent is same(For ex ---> 8 and 9 are siblings whose parent is 4)
+
+   Height :- Maximum Distance between root node and leaf node(extreme bottom node)
+             No of edges between root node and leaf node(extreme bottom node)
+
+   Degree :- Degree of node depends on the no of children that particular node has
+             Degree of 2 is 2( 2 children)
+
+   You have given a binary tree then --->
+   Total no of edges :- n-1 edges
+
+   Creation of node ------>
+
+   Node Structure --->
+
+   --------------------------------------------------
+   | Left node address | Data | Right node address  |
+   ---------------------------------------------------
