@@ -1,29 +1,40 @@
-package RecursiveTreeTraversals;
+package Tree.RecursiveTreeTraversals;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+class NodeP{
+    int data;
+    NodeP left;
+    NodeP right;
+
+    public NodeP(int data){
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
 public class PostOrderTreeTraversal {
     public static void main(String[] args) {
         System.out.println("Recursive Post Order Tree Traversal.");
-        Node1 root = createTree();
+        NodeP root = createTree();
         postOrderTraversal(root);
     }
 
-    public static Node1 createTree(){
+    public static NodeP createTree(){
 
-        Queue<Node1> q = new LinkedList<>();
+        Queue<NodeP> q = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter root data: ");
         int val = sc.nextInt();
-        Node1 root = new Node1(val);
+        NodeP root = new NodeP(val);
         q.add(root);
 
         while(!q.isEmpty()){
 
-            Node1 temp = q.remove();
+            NodeP temp = q.remove();
 
             // Ask for left data
             System.out.println("Enter left data of "+temp.data);
@@ -31,7 +42,7 @@ public class PostOrderTreeTraversal {
 
             if(left_data != -1){
 
-                Node1 left = new Node1(left_data);
+                NodeP left = new NodeP(left_data);
                 temp.left = left;
                 q.add(left);
             }
@@ -42,7 +53,7 @@ public class PostOrderTreeTraversal {
 
             if(right_data != -1){
 
-                Node1 right = new Node1(right_data);
+                NodeP right = new NodeP(right_data);
                 temp.right = right;
                 q.add(right);
             }
@@ -50,7 +61,7 @@ public class PostOrderTreeTraversal {
         return root;
     }
 
-    public static void postOrderTraversal(Node1 root){
+    public static void postOrderTraversal(NodeP root){
 
         // if root is null there is no data to print
         if(root == null){

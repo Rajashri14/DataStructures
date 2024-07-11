@@ -4,27 +4,38 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+class NodeT{
+    int data;
+    NodeT left;
+    NodeT right;
+
+    public NodeT(int data){
+        data = this.data;
+        left = null;
+        right = null;
+    }
+}
 public class PreOrderTreeTraversal {
     public static void main(String[] args) {
         System.out.println("Recursive preorder traversal of the tree.");
 
-        Node1 root = createTree();
+        NodeT root = createTree();
         preOrderTraversal(root);
     }
 
-    public static Node1 createTree(){
+    public static NodeT createTree(){
 
-        Queue<Node1> q = new LinkedList<>();
+        Queue<NodeT> q = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter root data: ");
         int val = sc.nextInt();
-        Node1 root = new Node1(val);
+        NodeT root = new NodeT(val);
         q.add(root);
 
         while(!q.isEmpty()){
 
-            Node1 temp = q.remove();
+            NodeT temp = q.remove();
 
             // Ask for left data
             System.out.println("Enter left data of "+temp.data);
@@ -32,7 +43,7 @@ public class PreOrderTreeTraversal {
 
             if(left_data != -1){
 
-                Node1 left = new Node1(left_data);
+                NodeT left = new NodeT(left_data);
                 temp.left = left;
                 q.add(left);
             }
@@ -43,7 +54,7 @@ public class PreOrderTreeTraversal {
 
             if(right_data != -1){
 
-                Node1 right = new Node1(right_data);
+                NodeT right = new NodeT(right_data);
                 temp.right = right;
                 q.add(right);
             }
@@ -51,7 +62,7 @@ public class PreOrderTreeTraversal {
         return root;
     }
 
-    public static void preOrderTraversal(Node1 root){
+    public static void preOrderTraversal(NodeT root){
 
         // if root is null there is no data to print
         if(root == null){
